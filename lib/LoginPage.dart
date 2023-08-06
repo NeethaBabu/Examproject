@@ -23,11 +23,13 @@ class CardExamplesApp extends StatelessWidget {
           ),
           child: Container(
             height: MediaQuery.of(context).size.height,
-            child: Stack(
+            child: Column(
               children: [
-                Positioned(
-                  top: 0,
+                Padding(
+                  padding:
+                      const EdgeInsets.only(top: 80.0, left: 40, right: 40),
                   child: Container(
+                    height: 350,
                     decoration: BoxDecoration(
                       image: const DecorationImage(
                         image: AssetImage("assets/images/circle.png"),
@@ -36,11 +38,7 @@ class CardExamplesApp extends StatelessWidget {
                     ),
                   ),
                 ),
-                Positioned(
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  top: 350,
+                Expanded(
                   child: Card(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15),
@@ -50,7 +48,7 @@ class CardExamplesApp extends StatelessWidget {
                     child: Padding(
                       padding: EdgeInsets.fromLTRB(40, 0, 20, 0),
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Row(
                             children: [
@@ -64,6 +62,9 @@ class CardExamplesApp extends StatelessWidget {
                               ),
                             ],
                           ),
+                          SizedBox(
+                            height: 10,
+                          ),
                           Row(
                             children: [
                               Text(
@@ -76,19 +77,33 @@ class CardExamplesApp extends StatelessWidget {
                               ),
                             ],
                           ),
+                          SizedBox(
+                            height: 20,
+                          ),
                           TextField(
                             obscureText: true,
                             decoration: InputDecoration(
-                              border: OutlineInputBorder(),
+                              labelStyle: TextStyle(
+                                  color: Color.fromRGBO(0, 0, 0, 0.2)),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
                               labelText: 'Enter your mobile number',
                             ),
+                          ),
+                          SizedBox(
+                            height: 30,
                           ),
                           ElevatedButton(
                             child: Text('Continue'),
                             onPressed: () {},
                             style: ElevatedButton.styleFrom(
+                                elevation: 0,
                                 backgroundColor: Color(0xff342060),
                                 minimumSize: Size.fromHeight(50)),
+                          ),
+                          SizedBox(
+                            height: 10,
                           ),
                           RichText(
                             textAlign: TextAlign.center,

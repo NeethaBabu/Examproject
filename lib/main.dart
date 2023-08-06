@@ -14,9 +14,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter background demo',
-      theme: ThemeData(fontFamily: 'Poppins'),
+      theme: ThemeData(
+        textTheme: GoogleFonts.poppinsTextTheme(
+          Theme.of(context).textTheme,
+        ),
+      ),
       debugShowCheckedModeBanner: false,
-      home: Splash(),
+      home: const Splash(),
     );
   }
 }
@@ -33,24 +37,25 @@ class _SplashState extends State<Splash> {
   void initState() {
     super.initState();
     Timer(
-        Duration(seconds: 3),
+        const Duration(seconds: 3),
         () => Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-              builder: (context) => CardExamplesApp(),
+              builder: (context) => const CardExamplesApp(),
             )));
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
-          image: const DecorationImage(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
             image: AssetImage("assets/images/background.png"),
             fit: BoxFit.fill,
           ),
         ),
-        child: Center(
+        child: const Center(
           child: Text(
             'Learning App',
             style: TextStyle(
